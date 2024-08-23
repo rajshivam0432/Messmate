@@ -1,0 +1,55 @@
+.container-complaint{
+  margin : 4rem 0 ; 
+  padding-top: 2.5rem ;
+  padding-bottom : 2.5rem ; 
+  display : flex ; 
+  flex-direction: column;
+  gap : 1.25rem ; 
+  position : relative ; 
+  width: 100%;
+  border-radius: 0.125rem ;
+  background: url('../../media/pexels-valeria-boltneva-1639562.jpg');
+  font-family: 'Dosis', sans-serif;
+}
+.category-input{
+  padding: 0.5rem ;
+  font-size:1rem;
+  margin-left: 0.5rem;
+  border-radius: 10px;
+  text-transform: capitalize;
+  font-family: 'Dosis', sans-serif;
+}
+.complaint-area{
+  width: 30rem ;
+  height: 15rem;
+  resize: none;
+  font-size: 1rem;
+  font-family: 'Dosis', sans-serif;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+.btn-complaint{
+  font-size: 1.2rem;
+  padding: .5rem 1.5rem;
+  margin-top: .5rem;
+  border-radius: 10px;
+  background-image: linear-gradient(135deg, #adadad 0%, #272727 100%);
+  outline: none;
+  cursor: pointer;
+  border: none;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+.btn-complaint:hover {
+  transform: translateY(-10px);
+  box-shadow: none;
+}
+.input-file{
+  padding: .1rem;
+  border-radius: 2px;
+  width: 14rem;
+  background-image: linear-gradient(135deg, #adadad 0%, #272727 100%);
+  margin: .5rem 0 0 0;
+  font-family: 'Dosis', sans-serif;
+}

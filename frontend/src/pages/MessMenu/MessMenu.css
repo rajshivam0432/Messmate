@@ -1,0 +1,82 @@
+/* WeeklyMenu.css */
+.weekly-menu-container {
+    margin: 4rem auto;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 0.5rem;
+    background: url('../../media/pexels-valeria-boltneva-1639562.jpg') no-repeat center center;
+    background-size: cover;
+    font-family: 'Dosis', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.weekly-menu-container h1 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.weekly-menu-container .first-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background */
+    color: #f4f4f4;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+
+.weekly-menu-container .first-row div,
+.weekly-menu-container .first-row span {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+}
+
+.weekly-menu-container .mess-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.weekly-menu-container .mess-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9); /* Light background with some transparency */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    color: #333;
+    font-size: 1rem;
+}
+
+.weekly-menu-container .mess-row:nth-child(even) {
+    background-color: rgba(240, 240, 240, 0.8); /* Light gray background for alternate rows */
+}
+
+.weekly-menu-container .mess-row div {
+    flex: 1;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .weekly-menu-container .first-row,
+    .weekly-menu-container .mess-row {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .weekly-menu-container .first-row {
+        padding: 10px;
+    }
+}
