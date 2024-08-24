@@ -57,7 +57,7 @@ const Services = () => {
                 <ServiceCard key={service.id} isFirstRow={index < 3}>
                     <ServiceInfo>
                         <h2>
-                            <a href={service.link}>{service.title}</a>
+                            <Link to={service.link}>{service.title}</Link>
                         </h2>
                         <ServiceImage src={service.imageUrl} alt={service.title} />
                     </ServiceInfo>
