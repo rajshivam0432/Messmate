@@ -31,18 +31,11 @@ const Header = () => {
           <img src="/images/bills.png" alt="MY BILLS" />
           <span>MY BILLS</span>
         </Link>
-      </NavMenu>
-      <AuthButtons>
-        {isLoggedIn ? (
-          <Link to="/profile">
-            <Button>Profile</Button>
-          </Link>
-        ) : (
-          <Link to="/login">
+        <Link to="/login">
             <Button>LOGIN</Button>
           </Link>
-        )}
-      </AuthButtons>
+      </NavMenu>
+      
     </Nav>
   );
 };
