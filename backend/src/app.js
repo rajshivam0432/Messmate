@@ -12,9 +12,15 @@ import accountroutes from './routes/account.routes.js';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+    origin: 'https://messmate-7dx5.vercel.app', // Replace with your specific frontend URL
+    credentials: true, // This allows the server to accept credentials (cookies, authorization headers, etc.)
+  };
+  
+  app.use(cors(corsOptions));
+  app.options('*', cors(corsOptions)); 
 // CORS configuration
-const allowedOrigins = ['http://localhost:5173'];
+// const allowedOrigins = ['http://localhost:5173'];
 
 
 
