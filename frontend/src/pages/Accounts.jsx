@@ -115,57 +115,63 @@ function Accounts() {
   console.log('Account Data:', accountData); // Debugging line
 
   return (
-    <div className='container-account text-left p-2'>
-      <h1 className='heading-account'>My Account</h1>
-      <div className="center-div-account">
-        <div className="left-div-account card-account">Available Balance:{accountData.balance}</div>
-        <div className="right-div-account card-account card2-account">{selectedMonthName} Bill:{monthbill}</div>
-      </div>
-      
-      <label className='select-text-account' htmlFor="monthSelector">Select Month: </label>
-      <select className='select-input-account'
-        id="monthSelector"
-        value={selectedMonth}
-        onChange={handleMonthChange}
-      >
-        {monthOptions.map((month) => (
-          <option key={month.value} value={month.value}>
-            {month.label}
-          </option>
-        ))}
-      </select>
-
-      {loading ? (
-        <p>Loading...</p>
-      ) : error ? (
-        <p className="error-text">{error}</p>
-      ) : (
-        <div className='middle-div-account flex justify-between gap-4 p-4 text-center'>
-          <div className="middle-child-account rounded-md bg-white w-full p-3">
-            <h1 className="text-3xl">Days Attending Mess</h1>
-            <p className="text-2xl">{safeValue(accountData.daysAttended)}</p>
-          </div>
-          <div className="middle-child-account rounded-md bg-white w-full p-3">
-            <h1 className="text-3xl">Diet Charges</h1>
-            <p className="text-2xl">₹{safeValue(accountData.dietCharges)}</p>
-          </div>
-          <div className="middle-child-account rounded-md bg-white w-full p-3">
-            <h1 className="text-3xl">Miscellaneous Charges</h1>
-            <p className="text-2xl">₹{safeValue(accountData.miscellaneousCharges)}</p>
-          </div>
-          <div className="middle-child-account rounded-md bg-white w-full p-3">
-            <h1 className="text-3xl">Extra Charges</h1>
-            <p className="text-2xl">₹{safeValue(accountData.extraCharges)}</p>
-          </div>
-          <div className="middle-child-account rounded-md bg-white w-full p-3">
-            <h1 className="text-3xl">Adjusted Meal Cost</h1>
-            <p className="text-2xl">₹{safeValue(accountData.adjustedMealCost)}</p>
-          </div>
-        </div>
-      )}
-
-      
+    <div className="container-account bg-cover bg-center" style={{ backgroundImage: `url("../../media/pexels-tahir-osman-18053574.jpg")` }}>
+  <div className="center-div-account flex w-full gap-2.5 p-2.5">
+    <div className="left-div-account relative w-full text-white bg-black flex items-center justify-center text-xl font-bold rounded-lg cursor-pointer">
+      Available Balance: {accountData.balance}
+      <div className="absolute top-0 right-0 w-1/5 h-1/5 flex items-center justify-center font-bold bg-gray-600 rounded-tr-lg transition-all duration-500" />
+      <div className="absolute bottom-0 left-0 w-1/5 h-1/5 flex items-center justify-center font-bold bg-gray-600 rounded-bl-lg transition-all duration-500" />
     </div>
+    <div className="right-div-account relative w-full text-white bg-black flex items-center justify-center text-xl font-bold rounded-lg cursor-pointer">
+      {selectedMonthName} Bill: {monthbill}
+      <div className="absolute top-0 right-0 w-1/5 h-1/5 flex items-center justify-center font-bold bg-gray-600 rounded-tr-lg transition-all duration-500" />
+      <div className="absolute bottom-0 left-0 w-1/5 h-1/5 flex items-center justify-center font-bold bg-gray-600 rounded-bl-lg transition-all duration-500" />
+    </div>
+  </div>
+  <label htmlFor="monthSelector" className="select-text-account text-left">Select Month: </label>
+  <select
+    id="monthSelector"
+    value={selectedMonth}
+    onChange={handleMonthChange}
+    className="select-input-account p-2.5 rounded w-1/10"
+  >
+    {monthOptions.map((month) => (
+      <option key={month.value} value={month.value}>
+        {month.label}
+      </option>
+    ))}
+  </select>
+
+  {loading ? (
+    <p>Loading...</p>
+  ) : error ? (
+    <p className="error-text text-red-500">{error}</p>
+  ) : (
+    <div className="middle-div-account flex justify-between gap-2.5 p-2.5 text-center">
+      <div className="middle-child-account rounded-md bg-white w-full p-3">
+        <h1 className="text-3xl">Days Attending Mess</h1>
+        <p className="text-2xl">{safeValue(accountData.daysAttended)}</p>
+      </div>
+      <div className="middle-child-account rounded-md bg-white w-full p-3">
+        <h1 className="text-3xl">Diet Charges</h1>
+        <p className="text-2xl">₹{safeValue(accountData.dietCharges)}</p>
+      </div>
+      <div className="middle-child-account rounded-md bg-white w-full p-3">
+        <h1 className="text-3xl">Miscellaneous Charges</h1>
+        <p className="text-2xl">₹{safeValue(accountData.miscellaneousCharges)}</p>
+      </div>
+      <div className="middle-child-account rounded-md bg-white w-full p-3">
+        <h1 className="text-3xl">Extra Charges</h1>
+        <p className="text-2xl">₹{safeValue(accountData.extraCharges)}</p>
+      </div>
+      <div className="middle-child-account rounded-md bg-white w-full p-3">
+        <h1 className="text-3xl">Adjusted Meal Cost</h1>
+        <p className="text-2xl">₹{safeValue(accountData.adjustedMealCost)}</p>
+      </div>
+    </div>
+  )}
+</div>
+
   );
 }
 

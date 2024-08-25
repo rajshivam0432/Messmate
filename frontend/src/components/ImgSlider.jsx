@@ -21,7 +21,7 @@ const ImgSlider = (props) => {
       <Wrap>
         <LazyLoad height={200} offset={100} once>
           <a>
-            <img src="/images/dining.jpg" alt="" />
+            <img src="/images/service-menu.webp" alt="kk" />
           </a>
         </LazyLoad>
       </Wrap>
@@ -29,7 +29,7 @@ const ImgSlider = (props) => {
       <Wrap>
         <LazyLoad height={200} offset={100} once>
           <a>
-            <img src="/images/mess-menu.jpg" alt="" />
+            <img src="/images/service-feedback.avif" alt="kk" />
           </a>
         </LazyLoad>
       </Wrap>
@@ -37,7 +37,15 @@ const ImgSlider = (props) => {
       <Wrap>
         <LazyLoad height={200} offset={100} once>
           <a>
-            <img src="/images/rebates.jpg" alt="" />
+            <img src="/images/dining.webp" alt="hello" />
+          </a>
+        </LazyLoad>
+      </Wrap>
+
+      <Wrap>
+        <LazyLoad height={100} offset={100} once>
+          <a>
+            <img src="/images/login-bg-image.webp" alt="billing" />
           </a>
         </LazyLoad>
       </Wrap>
@@ -45,15 +53,7 @@ const ImgSlider = (props) => {
       <Wrap>
         <LazyLoad height={200} offset={100} once>
           <a>
-            <img src="/images/billing.jpg" alt="" />
-          </a>
-        </LazyLoad>
-      </Wrap>
-
-      <Wrap>
-        <LazyLoad height={200} offset={100} once>
-          <a>
-            <img src="/images/complaints.jpg" alt="" />
+            <img src="/images/complaints.webp" alt="" />
           </a>
         </LazyLoad>
       </Wrap>
