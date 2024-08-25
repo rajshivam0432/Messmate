@@ -51,11 +51,11 @@
   }
   
   .card-account:hover:after {
-    content: "₹12,000";
+    content: "Make a safe payment";
   }
 
   .card2-account:hover:after{
-    content : "₹5,324";
+    content : "Make a safe payment";
   }
 
 
