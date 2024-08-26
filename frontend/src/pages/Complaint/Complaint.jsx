@@ -29,7 +29,7 @@ const ComplaintPage = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post('http://localhost:4000/api/v1/profile/complaint', formData, {
+      const response = await axios.post('${import.meta.env.VITE_BASE_URL}/api/v1/profile/complaint', formData, {
         headers: {
           "Content-type": "application/json",
           Authorization: `Bearer ${token}`,
