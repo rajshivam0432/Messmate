@@ -26,7 +26,7 @@ const ComplaintPage = () => {
     const formData = new FormData();
     formData.append('category', category);
     formData.append('complaint', complaint);
-
+  console.log("formData",formData);
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/api/v1/profile/complaint`,
