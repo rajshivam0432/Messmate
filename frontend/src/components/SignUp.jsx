@@ -52,6 +52,7 @@ function Signup() {
           headers: {
             "Content-type": "application/json",
           },
+          timeout: 10000,
         };
 
         const res = await axios.post(
@@ -67,17 +68,11 @@ function Signup() {
           },
           config
         );
-        console.log("userIdpleaseeeeeeeeeee");
-        // Ensure the server response includes userId and token
+
         const { user, token } = res.data;
-        console.log(res.data);
         if (user && user._id) {
-          console.log("userId", user._id);
           localStorage.setItem('token', token);
-          console.log("Storing User ID:", user._id);
           sessionStorage.setItem('userId', user._id);        
-            
-          // Set userId in localStorage
         } else {
           console.error("User ID not found in response");
         }
@@ -88,11 +83,11 @@ function Signup() {
         if (error.response) {
           console.log("Response data:", error.response.data);
         }
-        console.log(error);
         setFormErrors({ apiError: "Signup failed. Please try again." });
       }
     }
   };
+
 
   const validate = (values) => {
     const errors = {};
