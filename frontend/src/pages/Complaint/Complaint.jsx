@@ -28,13 +28,17 @@ const ComplaintPage = () => {
     formData.append('complaint', complaint);
 
     try {
-      const token = localStorage.getItem('token');
-      const response = await axios.post('${import.meta.env.VITE_BASE_URL}/api/v1/profile/complaint', formData, {
-        headers: {
-          "Content-type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/api/v1/profile/complaint`,
+        formData,
+        {
+          headers: {
+            "Content-type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          timeout: 10000,
+        }
+      );
 
       console.log('Complaint submitted:', response.data);
       alert('Complaint submitted successfully!');

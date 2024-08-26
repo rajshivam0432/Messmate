@@ -6,7 +6,7 @@ import { Complaint } from "../models/complaint.model.js";
 
 const complaint = asyncHandler(async (req, res) => {
   const { category, complaint ,} = req.body;
-
+ console.log("req .body",req.body);
   // Validate input
   if (!category || !complaint) {
     throw new Apierror(400, "All fields are required");
