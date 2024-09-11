@@ -29,10 +29,10 @@ const complaint = asyncHandler(async (req, res) => {
 
   // Extract user ID from decoded token
   const userId = decodedToken._id;
-// console.log("userid",userId)
+console.log("userid",userId)
   // Find the logged-in user
   const complainter = await User.findById(userId);
-  // console.log("complainter",complainter)
+  console.log("complainter",complainter)
 
   
   if (!complainter) {

@@ -136,10 +136,14 @@ function Accounts() {
       </select>
 
       {loading ? (
-        <p>Loading...</p>
-      ) : error ? (
-        <p className="error-text">{error}</p>
-      ) : (
+  <p>Loading...</p>
+) : error ? (
+  <div>
+    <p className="error-text">{error}</p>
+    {/* You can also use an alert, but it is not recommended to use alerts for UI feedback */}
+    alert('Please validate yourself.')
+  </div>
+) : (
         <div className='middle-div-account flex justify-between gap-4 p-4 text-center'>
           <div className="middle-child-account rounded-md bg-white w-full p-3">
             <h1 className="text-3xl">Days Attending Mess</h1>
