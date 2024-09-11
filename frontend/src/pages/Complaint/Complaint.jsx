@@ -1,16 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const ComplaintPage = () => {
   const navigate = useNavigate();
   const [category, setCategory] = useState('');
   const [complaint, setComplaint] = useState('');
-  const [file, setFile] = useState(null); // State for file
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const fileInputRef = useRef(null); // Reference for file input
 
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
@@ -18,10 +16,6 @@ const ComplaintPage = () => {
 
   const handleComplaintChange = (e) => {
     setComplaint(e.target.value);
-  };
-
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]); // Update state with selected file
   };
 
   const handleSubmit = async (e) => {
@@ -32,30 +26,26 @@ const ComplaintPage = () => {
     const formData = new FormData();
     formData.append('category', category);
     formData.append('complaint', complaint);
-    if (file) {
-      formData.append('file', file); // Append the file to form data
-    }
-
+  console.log("formData",formData);
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}/api/v1/profile/complaint`,
-        formData,
-        {
-          headers: {
-            "Content-type": "multipart/form-data", // Updated content type
-            Authorization: `Bearer ${token}`, // Ensure you have a valid token
-          },
-          timeout: 10000,
-        }
-      );
+  `${import.meta.env.VITE_BASE_URL}/api/v1/profile/complaint`,
+  formData,
+  {
+    headers: {
+      "Content-type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    timeout: 10000,
+  }
+);
+
 
       console.log('Complaint submitted:', response.data);
       alert('Complaint submitted successfully!');
 
       setCategory('');
       setComplaint('');
-      setFile(null); // Clear file input
-      fileInputRef.current.value = ''; // Clear file input element
     } catch (error) {
       console.error('Error submitting complaint:', error.response?.data);
       setError('Error submitting complaint: ' + error.response?.data?.message);
@@ -89,15 +79,6 @@ const ComplaintPage = () => {
               placeholder="Write complaint here"
               value={complaint}
               onChange={handleComplaintChange}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label>Upload Media:</Label>
-            <StyledFileInput
-              type="file"
-              accept="image/*,video/*" // Restrict file types (optional)
-              onChange={handleFileChange}
-              ref={fileInputRef} // Attach ref for clearing the file input
             />
           </FormGroup>
           <SubmitButton disabled={loading}>{loading ? 'Submitting...' : 'Submit'}</SubmitButton>
@@ -163,15 +144,6 @@ const StyledTextArea = styled.textarea`
   border-radius: 4px;
   resize: vertical;
   min-height: 150px;
-`;
-
-const StyledFileInput = styled.input`
-  width: 100%;
-  padding: 12px;
-  font-size: 18px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-top: 8px;
 `;
 
 const SubmitButton = styled.button`
