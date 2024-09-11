@@ -1,30 +1,36 @@
-import mongoose, { Schema } from "mongoose"
+import mongoose, { Schema } from "mongoose";
 
-const complaintSchema=new Schema({
-   category:{
-    type:String,
-    required:true
-   },
-   complaint:{
-    type:String,
-    required:true
-   },
+const complaintSchema = new Schema({
+  category: {
+    type: String,
+    required: true
+  },
+  complaint: {
+    type: String,
+    required: true
+  },
+  complainter: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  },
+  email: { 
+    type: String, 
+    required: true,
+    unique: true,
    
-   complainter:{
-    type:Schema.Types.ObjectId,
-    ref:"User"
-   },
-   email: { type: String, required: true,unique:true},
+  },
+  hostelNumber: {
+    type: String,
+    required: true,
+  },
+  resolved: {
+    type: Boolean,
+    required: true,
+    default: false 
+  },
+  file: {
+    type: String, 
+  }
+}, { timestamps: true });
 
-   hostelNumber:{
-    type:String,
-    required:true,
-   },
-   resolved:{
-      type:Boolean,
-      required:true,
-     },
-
-},{timestamps:true})
-
-export const  Complaint=mongoose.model("Complaint",complaintSchema)
+export const Complaint = mongoose.model("Complaint", complaintSchema);
