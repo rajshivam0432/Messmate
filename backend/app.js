@@ -30,11 +30,13 @@ app.use(express.static("public"));
 
 // Cookie parser middleware
 app.use(cookieParser());
-
+app.use(express.static(path.join(__dirname, "client/build")));
 // Root route
 app.get("/", (req, res) => {
   res.send("Server is ready to use!!!");
 });
+
+// Handle any other routes and serve the React app
 
 // API routes
 app.use("/api/v1/users", userRouter);
