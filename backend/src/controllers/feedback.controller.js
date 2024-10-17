@@ -1,9 +1,10 @@
 import { Feedback } from '../models/feedback.model.js'
 
-// Function to submit feedback
+
 const submitFeedback = async (req, res) => {
   try {
     const { rating, feedbackMessage } = req.body;
+    console.log("rating ",rating)
     console.log("Received feedback:", req.body);
     
     const userId = req._id;
@@ -11,7 +12,7 @@ const submitFeedback = async (req, res) => {
 
     // Save feedback to the database with associated user ID
     const newFeedback = new Feedback({
-      rating,
+      stars:rating,
       feedbackMessage, 
       // user: userId 
     });

@@ -13,9 +13,9 @@ dotenv.config();
 
 const app = express();
 const corsOptions = {
-    origin: 'https://messmate-7dx5.vercel.app', // Replace with your specific frontend URL
-    credentials: true, // This allows the server to accept credentials (cookies, authorization headers, etc.)
-  };
+  origin: "http://localhost:5173", // Replace with your specific frontend URL
+  credentials: true, // This allows the server to accept credentials (cookies, authorization headers, etc.)
+};
   
   app.use(cors(corsOptions));
   app.options('*', cors(corsOptions)); 
