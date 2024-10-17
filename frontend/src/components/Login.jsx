@@ -34,7 +34,7 @@ function Login() {
         config
       );
       console.log("response",res,"response.data",res.data);
-      const { userId } = res.data;
+      // const { userId } = res.data;
       console.log("userId", res.data.user._id);
       localStorage.setItem('userId', res.data.user._id); // Store userId in localStorage
 
